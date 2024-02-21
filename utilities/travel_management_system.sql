@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2024 at 12:55 PM
+-- Generation Time: Feb 21, 2024 at 12:03 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -32,8 +32,16 @@ CREATE TABLE `account` (
   `name` varchar(40) DEFAULT NULL,
   `password` varchar(30) DEFAULT NULL,
   `question` varchar(100) DEFAULT NULL,
-  `answare` varchar(50) DEFAULT NULL
+  `answer` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `account`
+--
+
+INSERT INTO `account` (`username`, `name`, `password`, `question`, `answer`) VALUES
+('user1', 'Name1', '123456', 'Your NickName?', 'user1'),
+('user2', 'User2', '123456', 'Your Lucky Number?', '17');
 
 -- --------------------------------------------------------
 
@@ -46,13 +54,20 @@ CREATE TABLE `bookhotel` (
   `name` varchar(30) DEFAULT NULL,
   `persons` varchar(20) DEFAULT NULL,
   `days` varchar(20) DEFAULT NULL,
-  `air_conditioned` varchar(10) DEFAULT NULL,
+  `air_conditioned` varchar(20) DEFAULT NULL,
   `food` varchar(10) DEFAULT NULL,
   `id` varchar(30) DEFAULT NULL,
   `number` varchar(20) DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
   `cost` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `bookhotel`
+--
+
+INSERT INTO `bookhotel` (`username`, `name`, `persons`, `days`, `air_conditioned`, `food`, `id`, `number`, `phone`, `cost`) VALUES
+('user1', 'Hotel1', '1', '2', 'Air Conditioned', 'Yes', 'Identity Card', '0600415363524', '+4073300222', '432 Euro');
 
 -- --------------------------------------------------------
 
@@ -69,6 +84,13 @@ CREATE TABLE `bookpackage` (
   `phone` varchar(20) DEFAULT NULL,
   `price` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `bookpackage`
+--
+
+INSERT INTO `bookpackage` (`username`, `package`, `persons`, `id`, `number`, `phone`, `price`) VALUES
+('user1', 'Gold Package', '1', 'Identity Card', '0600415363524', '+4073300222', '135 Euro');
 
 -- --------------------------------------------------------
 
@@ -88,6 +110,18 @@ CREATE TABLE `customer` (
   `email` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`username`, `id_type`, `number`, `name`, `gender`, `country`, `address`, `phone`, `email`) VALUES
+('customer1', 'Identity Card', '1950509546524', 'Name1', 'Male', 'Roamania', 'Address1', '+40722123456', 'customer1@gmail.com'),
+('customer2', 'Passport', '123456789123456', 'Name1', 'Male', 'Romania', 'Address2', '+40755123123', 'customer2@gmail.com'),
+('customer3', 'Passport', '1234567891345 ', 'Customer3', 'Female', 'Romania', 'Address3', '40711111111', 'customer3@gmail.com  '),
+('Customer4', 'Voter Id', '12345678912345', 'Name5', 'Male', 'Romania', 'Address4', '+407012123123', 'customer4@gmail.com  '),
+('Customer5', 'Identity Card', '1781020463515', 'Name5', 'Male', 'Romania', 'Address5', '0040799123456', 'customer5@yahoo.com'),
+('user1', 'Identity Card', '0600415363524', 'Name1', 'Male', 'Romania', 'Address7', '+4073300222', 'user1@gmail.com');
+
 -- --------------------------------------------------------
 
 --
@@ -98,64 +132,64 @@ CREATE TABLE `hotels` (
   `name` varchar(30) DEFAULT NULL,
   `cost_per_day` varchar(20) DEFAULT NULL,
   `food_charges` varchar(20) DEFAULT NULL,
-  `air_conditioned_charges` varchar(20) DEFAULT NULL
+  `air_conditioned` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `hotels`
 --
 
-INSERT INTO `hotels` (`name`, `cost_per_day`, `food_charges`, `air_conditioned_charges`) VALUES
-('Hotel1', '298', '29', '6'),
-('Hotel2', '142', '15', '14'),
-('Hotel3', '385', '25', '8'),
-('Hotel4', '326', '12', '13'),
-('Hotel5', '397', '16', '17'),
-('Hotel6', '221', '16', '8'),
-('Hotel7', '286', '24', '17'),
-('Hotel8', '154', '20', '19'),
-('Hotel9', '355', '27', '5'),
-('Hotel10', '192', '14', '6'),
-('Hotel11', '262', '29', '8'),
-('Hotel12', '339', '14', '19'),
-('Hotel13', '199', '28', '14'),
-('Hotel14', '220', '26', '16'),
-('Hotel15', '144', '15', '15'),
-('Hotel16', '425', '29', '6'),
-('Hotel17', '230', '19', '20'),
-('Hotel18', '163', '25', '7'),
-('Hotel19', '124', '13', '8'),
-('Hotel20', '74', '21', '18'),
-('Hotel21', '113', '25', '12'),
-('Hotel22', '273', '22', '12'),
-('Hotel23', '356', '21', '11'),
-('Hotel24', '146', '18', '10'),
-('Hotel25', '437', '11', '12'),
-('Hotel26', '206', '21', '16'),
-('Hotel27', '274', '24', '19'),
-('Hotel28', '225', '27', '20'),
-('Hotel29', '306', '12', '16'),
-('Hotel30', '162', '28', '15'),
-('Hotel31', '357', '12', '7'),
-('Hotel32', '251', '27', '18'),
-('Hotel33', '73', '23', '10'),
-('Hotel34', '215', '22', '17'),
-('Hotel35', '246', '12', '20'),
-('Hotel36', '226', '12', '10'),
-('Hotel37', '114', '14', '14'),
-('Hotel38', '416', '13', '5'),
-('Hotel39', '449', '26', '19'),
-('Hotel40', '328', '20', '12'),
-('Hotel41', '230', '13', '11'),
-('Hotel42', '192', '18', '5'),
-('Hotel43', '374', '29', '9'),
-('Hotel44', '245', '28', '6'),
-('Hotel45', '403', '24', '18'),
-('Hotel46', '317', '15', '10'),
-('Hotel47', '111', '14', '17'),
-('Hotel48', '341', '22', '18'),
-('Hotel49', '192', '22', '7'),
-('Hotel50', '182', '25', '19');
+INSERT INTO `hotels` (`name`, `cost_per_day`, `food_charges`, `air_conditioned`) VALUES
+('Hotel1', '170', '29', '17'),
+('Hotel2', '165', '17', '17'),
+('Hotel3', '266', '20', '13'),
+('Hotel4', '78', '13', '13'),
+('Hotel5', '299', '17', '10'),
+('Hotel6', '208', '22', '12'),
+('Hotel7', '180', '12', '12'),
+('Hotel8', '97', '13', '11'),
+('Hotel9', '295', '12', '9'),
+('Hotel10', '324', '23', '16'),
+('Hotel11', '256', '16', '15'),
+('Hotel12', '182', '30', '17'),
+('Hotel13', '312', '25', '9'),
+('Hotel14', '130', '21', '8'),
+('Hotel15', '73', '22', '19'),
+('Hotel16', '71', '20', '13'),
+('Hotel17', '170', '12', '12'),
+('Hotel18', '284', '22', '18'),
+('Hotel19', '267', '29', '15'),
+('Hotel20', '335', '14', '9'),
+('Hotel21', '241', '25', '20'),
+('Hotel22', '347', '30', '7'),
+('Hotel23', '186', '30', '16'),
+('Hotel24', '85', '27', '6'),
+('Hotel25', '95', '22', '18'),
+('Hotel26', '141', '23', '14'),
+('Hotel27', '322', '21', '8'),
+('Hotel28', '77', '22', '19'),
+('Hotel29', '344', '18', '6'),
+('Hotel30', '229', '12', '17'),
+('Hotel31', '212', '19', '17'),
+('Hotel32', '287', '29', '11'),
+('Hotel33', '274', '21', '14'),
+('Hotel34', '235', '20', '17'),
+('Hotel35', '242', '27', '12'),
+('Hotel36', '274', '18', '17'),
+('Hotel37', '190', '20', '9'),
+('Hotel38', '320', '22', '11'),
+('Hotel39', '136', '22', '9'),
+('Hotel40', '315', '19', '15'),
+('Hotel41', '162', '16', '13'),
+('Hotel42', '321', '27', '14'),
+('Hotel43', '290', '16', '9'),
+('Hotel44', '144', '11', '12'),
+('Hotel45', '200', '18', '14'),
+('Hotel46', '245', '21', '18'),
+('Hotel47', '79', '16', '9'),
+('Hotel48', '304', '22', '15'),
+('Hotel49', '323', '29', '7'),
+('Hotel50', '300', '14', '14');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

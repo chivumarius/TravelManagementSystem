@@ -1,13 +1,9 @@
 package travel;
 
-import java.awt.*;
-import java.awt.event.*;
-
 import javax.swing.*;
-
-import java.awt.Font;
-import javax.swing.JFrame;
-import javax.swing.border.Border;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class About extends JFrame implements ActionListener {
 
@@ -25,29 +21,26 @@ public class About extends JFrame implements ActionListener {
         b1.setBounds(180, 430, 120, 20);
         b1.addActionListener(this);
 
+
         Font f = new Font("RALEWAY", Font.BOLD, 180);
         setFont(f);
 
-        s = "                                    About Projects          \n  "
-                + "\nThe objective of the Travel and Tourism Management System"
-                + "project is to develop a system that automates the processes "
-                + "and activities of a travel and the purpose is to design a "
-                + "system using which one can perform all operations related to "
-                + "traveling.\n\n"
-                + "This application will help in accessing the information related "
-                + "to the travel to the particular destination with great ease. "
-                + "The users can track the information related to their tours with "
-                + "great ease through this application. The travel agency information "
-                + "can also be obtained through this application.\n\n"
-                + "Advantages of Project:"
-                + "\nGives accurate information"
-                + "\nSimplifies the manual work"
-                + "\nIt minimizes the documentation related work"
-                + "\nProvides up to date information"
-                + "\nFriendly Environment by providing warning messages."
-                + "\ntravelers details can be provided"
-                + "\nbooking confirmation notification"
-                ;
+        s = """
+                                         \s
+                \s
+                The aim of the Travel and Tourism Management system project is to create an automated platform that streamlines the operations and processes involved in travel management. This system is designed to enable users to seamlessly perform all tasks associated with travel arrangements.
+                                
+                This application facilitates easy access to information pertaining to travel to specific destinations. Users can effortlessly track details related to their tours through this application. Additionally, the application allows users to access information about travel agencies.
+                                
+                Key Advantages of the Project:
+                                
+                 Offers precise and accurate information
+                 Streamlines manual tasks
+                 Reduces the need for extensive documentation
+                 Provides real-time updates
+                 Establishes a user-friendly environment with warning messages
+                 Enables the provision of traveler details
+                 Sends booking confirmation notifications""";
 
         TextArea t1 = new TextArea(s, 10, 40, Scrollbar.VERTICAL);
         t1.setEditable(false);
@@ -64,12 +57,18 @@ public class About extends JFrame implements ActionListener {
         JLabel l1 = new JLabel("About Project");
         add(l1);
         l1.setBounds(170, 10, 180, 80);
-        l1.setForeground(Color.red);
+        l1.setForeground(Color.blue);
 
         Font f2 = new Font("RALEWAY", Font.BOLD, 20);
         l1.setFont(f2);
 
         setBounds(700, 220, 500, 550);
+
+        // Set Frame to Open in the Center of the Screen at Runtime
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int centerX = (int) ((screenSize.getWidth() - getWidth()) / 2);
+        int centerY = (int) ((screenSize.getHeight() - getHeight()) / 2);
+        setLocation(centerX, centerY);
 
         setLayout(null);
         setVisible(true);
@@ -80,7 +79,7 @@ public class About extends JFrame implements ActionListener {
         dispose();
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         new About().setVisible(true);
     }
 

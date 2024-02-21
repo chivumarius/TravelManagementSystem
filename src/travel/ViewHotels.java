@@ -2,10 +2,8 @@ package travel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.io.File;
 
-public class CheckHotels extends JFrame implements Runnable {
+public class ViewHotels extends JFrame implements Runnable {
 
     JLabel l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12, l13, l14, l15, l16, l17, l18, l19;
     JLabel caption;
@@ -73,7 +71,7 @@ public class CheckHotels extends JFrame implements Runnable {
 
     }
 
-    public CheckHotels() {
+    public ViewHotels() {
 
         setBounds(580, 220, 900, 700);
         getContentPane().setBackground(new Color(220, 250, 250));
@@ -170,10 +168,12 @@ public class CheckHotels extends JFrame implements Runnable {
 
         th.start();
 
+        // Set Frame to Open in the Center of the Screen at Runtime
+        setLocationRelativeTo(null);
     }
 
     public static void main(String args[]) {
-        new CheckHotels().setVisible(true);
+        new ViewHotels().setVisible(true);
 
     }
 
